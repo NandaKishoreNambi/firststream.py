@@ -32,9 +32,12 @@ if name:
         if score < 3:
             st.write(name, 'your score was not that great')
             st.write("Try to take the test again ")
-            st.button("Refresh ")
-            if st.button:
-                keyboard.press_and_release('ctrl+f5')
+            st.button('Retake the test')
+        if st.button:
+            keyboard.press_and_release("ctrl+f5")
+        else:
+            pass
+
 
 
 
