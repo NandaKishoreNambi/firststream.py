@@ -1,20 +1,15 @@
 import streamlit as st
 import snowflake.connector
 
-account = 'df68881.central-india.azure'
-user = 'NANDA'
-password = 'Nanda1024'
-warehouse = 'COMPUTE_WH'
-database = 'MYFIRSTDATABASE'
-schema = 'APP'
+
 
 conn = snowflake.connector.connect(
-    account=account,
-    user=user,
-    password=password,
-    warehouse=warehouse,
-    database=database,
-    schema=schema
+    account=st.secrets.connections.snowpark.account,
+    user=st.secrets.connections.snowpark.user,
+    password=st.secrets.connections.snowpark.password,
+    database=st.secrets.connections.snowpark.database,
+    schema=st.secrets.connections.snowpark.schema,
+    warehouse=st.secrets.connections.snowpark.warehouse
 )
 
 cursor = conn.cursor()
