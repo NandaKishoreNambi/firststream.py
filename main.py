@@ -25,7 +25,7 @@ results = cursor.fetchall()
 
 
 
-st.title(":blue[Explore with Satwik] :black_heart:")
+st.title(":blue[Explore with Streamlit] :black_heart:")
 st.write("This app is a test for you to explore! Please enter your name below to get started.")
 
 name = st.text_input("Enter your name:")
