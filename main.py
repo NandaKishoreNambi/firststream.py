@@ -34,7 +34,7 @@ if name:
     "Your test has started...! Mark the Correct Answers :sunglasses:"
 
     score = 1
-    question1 = st.radio("1.What is the spelling of number 3 ?", ('Three', 'Nanda', 'Hari', 'Two'))
+    question1 = st.radio("1.What is the spelling of number 3 ?", ('Three', 'one', 'twenty', 'Two'))
     question2 = st.radio("2.What is the special occasion on 26th Jan ?",
                          ('None of the above', 'Republic day', "Gandhi's Birthday", 'Independance day'))
     question3 = st.radio("3.Who is the prime minister of india ?",
