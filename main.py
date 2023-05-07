@@ -1,6 +1,29 @@
 import streamlit as st
-import random
-import keyboard
+import snowflake.connector
+
+account = 'df68881.central-india.azure'
+user = 'NANDA'
+password = 'Nanda1024'
+warehouse = 'COMPUTE_WH'
+database = 'MYFIRSTDATABASE'
+schema = 'PUBLIC'
+
+conn = snowflake.connector.connect(
+    account=account,
+    user=user,
+    password=password,
+    warehouse=warehouse,
+    database=database,
+    schema=schema
+)
+
+cursor = conn.cursor()
+
+cursor.execute('SELECT * FROM MCQ_QUESTIONS')
+
+results = cursor.fetchall()
+
+
 
 st.title(":blue[Explore with Satwik] :black_heart:")
 st.write("This app is a test for you to explore! Please enter your name below to get started.")
@@ -10,7 +33,7 @@ if name:
     st.write(f"Hello, {name}! ")
     "Your test has started...! Mark the Correct Answers :sunglasses:"
 
-    score = 0
+    score = 1
     question1 = st.radio("1.What is the spelling of number 3 ?", ('Three', 'Nanda', 'Hari', 'Two'))
     question2 = st.radio("2.What is the special occasion on 26th Jan ?",
                          ('None of the above', 'Republic day', "Gandhi's Birthday", 'Independance day'))
@@ -26,20 +49,6 @@ if name:
     if question4 == 'Hyderabad':
         score += 1
     end = st.button("Click here to end the test ")
-    if end:
-        if score >= 3:
-            st.write(name, 'your score was good enough')
-        if score < 3:
-            st.write(name, 'your score was not that great')
-            st.write("Try to take the test again ")
-            st.button('Retake the test')
-        if st.button:
-            keyboard.press_and_release("ctrl+f5")
-        else:
-            pass
-
-
-
-
-
+    if end :
+        st.write(name,'your score is ',score)
 
